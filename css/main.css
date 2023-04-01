@@ -1,263 +1,184 @@
-/*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
-
-/* main.css 2.1.0 | MIT License | https://github.com/h5bp/main.css#readme */
-/*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
-
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
-
-html {
-  color: #222;
-  font-size: 1em;
-  line-height: 1.4;
-}
-
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * Vendor-prefixed and regular ::selection selectors cannot be combined:
- * https://stackoverflow.com/a/16982510/7133471
- *
- * Customize the background color to match your design.
- */
-
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-/*
- * A better looking default horizontal rule
- */
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
-}
-
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-  vertical-align: middle;
-}
-
-/*
- * Remove default fieldset styles.
- */
-
-fieldset {
-  border: 0;
+*{
   margin: 0;
   padding: 0;
-}
-
-/*
- * Allow only vertical resizing of textareas.
- */
-
-textarea {
-  resize: vertical;
-}
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-/*
- * Hide visually and from screen readers
- */
-
-.hidden,
-[hidden] {
-  display: none !important;
-}
-
-/*
- * Hide only visually, but have it available for screen readers:
- * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- *
- * 1. For long content, line feeds are not interpreted as spaces and small width
- *    causes content to wrap 1 word per line:
- *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
- */
-
-.sr-only {
   border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+body{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #06283D;
+}
+
+.container{
+  position: relative;
+  width: 400px;
+  height: 105px;
+  background: #fff;
+  padding: 28px 32px;
   overflow: hidden;
-  padding: 0;
+  border-radius: 18px;
+  font-family: 'Roboto', sans-serif;
+  transition: 0.6s ease-out;
+}
+
+.search-box{
+  width: 100%;
+  height: min-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-box input{
+  color: #06283D;
+  width: 80%;
+  font-size: 24px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding-left: 32px;
+}
+
+.search-box input::placeholder{
+  font-size: 20px;
+  font-weight: 500;
+  color: #06283D;
+  text-transform: capitalize;
+}
+
+.search-box button{
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  color: #06283D;
+  background: #dff6ff;
+  border-radius: 50%;
+  font-size: 22px;
+  transition: 0.4s ease;
+}
+
+.search-box button:hover{
+  color: #fff;
+  background: #06283D;
+}
+
+.search-box i{
   position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  /* 1 */
+  color: #06283D;
+  font-size: 28px;
 }
 
-/*
- * Extends the .sr-only class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
-
-.sr-only.focusable:active,
-.sr-only.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  white-space: inherit;
-  width: auto;
+.weather-box{
+  text-align: center;
 }
 
-/*
- * Hide visually and from screen readers, but maintain layout
- */
-
-.invisible {
-  visibility: hidden;
+.weather-box img{
+  width: 60%;
+  margin-top: 30px;
 }
 
-/*
- * Clearfix: contain floats
- *
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that receive the `clearfix` class.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
-
-.clearfix::before,
-.clearfix::after {
-  content: " ";
-  display: table;
+.weather-box .temperature{
+  position: relative;
+  color: #06283D;
+  font-size: 4rem;
+  font-weight: 800;
+  margin-top: 30px;
+  margin-left: -16px;
 }
 
-.clearfix::after {
-  clear: both;
+.weather-box .temperature span{
+  position: absolute;
+  margin-left: 4px;
+  font-size: 1.5rem;
 }
 
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
+.weather-box .description{
+  color: #06283D;
+  font-size: 22px;
+  font-weight: 500;
+  text-transform: capitalize;
 }
 
-@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
+.weather-details{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
 }
 
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   https://www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
-
-@media print {
-  *,
-  *::before,
-  *::after {
-    background: #fff !important;
-    color: #000 !important;
-    /* Black prints faster */
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
-
-  a[href]::after {
-    content: " (" attr(href) ")";
-  }
-
-  abbr[title]::after {
-    content: " (" attr(title) ")";
-  }
-
-  /*
-   * Don't show links that are fragment identifiers,
-   * or use the `javascript:` pseudo protocol
-   */
-  a[href^="#"]::after,
-  a[href^="javascript:"]::after {
-    content: "";
-  }
-
-  pre {
-    white-space: pre-wrap !important;
-  }
-
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
-  /*
-   * Printing Tables:
-   * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
-   */
-  thead {
-    display: table-header-group;
-  }
-
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
+.weather-details .humidity, .weather-details .wind{
+  display: flex;
+  align-items: center;
+  width: 50%;
+  height: 100px;
 }
 
+.weather-details .humidity{
+  padding-left: 20px;
+  justify-content: flex-start;
+}
+
+.weather-details .wind{
+  padding-right: 20px;
+  justify-content: flex-end;
+}
+
+.weather-details i{
+  color: #06283D;
+  font-size: 26px;
+  margin-right: 10px;
+  margin-top: 6px;
+}
+
+.weather-details span{
+  color: #06283D;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.weather-details p{
+  color: #06283D;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.not-found{
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
+  scale: 0;
+  opacity: 0;
+  display: none;
+}
+
+.not-found img{
+  width: 70%;
+}
+
+.not-found p{
+  color: #06283D;
+  font-size: 22px;
+  font-weight: 500;
+  margin-top: 12px;
+}
+
+.weather-box, .weather-details{
+  scale: 0;
+  opacity: 0;
+}
+
+.fadeIn{
+  animation: 0.5s fadeIn forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeIn{
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
